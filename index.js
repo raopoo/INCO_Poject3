@@ -4,10 +4,10 @@ const PORT = 3000
 
 // Get request-route
 app.get('/',(req,res) => {
-    res.send('hello world')
+    res.send('Welcome to our schedule website')
 })
 
 
 app.listen(PORT,() => {
-    console.log(`You are all doing great. The app : http://localhost:${PORT}`)
+    console.log(`Here is your app : http://localhost:${PORT}`)
 })
