@@ -20,14 +20,21 @@ app.get('/',(req,res) => {
 })
 //Display all users
 app.get('/users',(req,res) =>{
-    res.json(data.users)
-    // res.render('pages/users',{
-    //     users:data.users  
-    //})
+    //res.json(data.users)
+    res.render('pages/users')
 })
 //Display all schedules
 app.get('/schedules',(req,res) =>{
-    res.json(data.schedules)
+    //res.json(data.schedules)
+    res.render('pages/schdules')
+})
+app.get('/newUser',(req,res) =>{
+    //res.json(data.schedules)
+    res.render('pages/newUser')
+})
+app.get('/newSch',(req,res) =>{
+    //res.json(data.schedules)
+    res.render('pages/newSch')
 })
 
 //Display single user
@@ -38,13 +45,13 @@ app.get('/users/:id',(req,res) => {
 //Display Schedule for a single user
 app.get('/users/:id/schedules',(req,res) => {
     let schedule = []
-    for(let i = 0;i< data.schedules.length;i++){
-        if(data.schedules[i].user_id === Number(req.params.id)){
+    for(let i = 0; i < data.schedules.length; i++){
+        if(data.schedules[i].user_id == Number(req.params.id)){
             schedule.push(data.schedules[i])
         }
     else{
        res.send('User not found')
-    }
+   }
     res.send(schedule)
  } 
 });
