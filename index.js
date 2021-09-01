@@ -38,16 +38,20 @@ app.get('/users/:id',(req,res) => {
 //Display Schedule for a single user
 app.get('/users/:id/schedules',(req,res) => {
     let schedule = []
-    for(let i = 0;i< data.schedules.length;i++){
+    for(let i = 0;i<data.schedules.length;i++){
+        //console.log(data.schedules[i])
+         //console.log(req.params.id)
         if(data.schedules[i].user_id === Number(req.params.id)){
             schedule.push(data.schedules[i])
+            //console.log(schedule)   
         }
-    else{
-       res.send('User not found')
-    }
-    res.send(schedule)
  } 
+ //console.log(schedule)  
+   res.send(schedule)
 });
+
+
+
 //Add a new user
 app.post('/users', (req,res) => {
     const {firstname, lastname, email, password} = req.body
