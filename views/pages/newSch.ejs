@@ -7,28 +7,30 @@
         <h1>Schedule website</h1>
         <h2>Add new Schedule</h2>
         <!-- user form -->
-        <form class="row g-3" id="schForm">
+        <div id="formDiv" class="border border-primary">
+        <form class="row g-3" id="schForm" method="POST" action="/schedules">
             <div class="col-md-6">
                 <label for="userId" class="form-label">User Id</label>
-                <input type="number" class="form-control" id="userId">
+                <input type="number" class="form-control" id="userId" name="user_id">
             </div>
             <div class="col-md-6">
                 <label for="day" class="form-label">Day</label>
-                <input type="number" class="form-control" id="day">
+                <input type="number" class="form-control" id="day" name="day">
             </div>
             <div class="col-md-6">
                 <label for="startT" class="form-label">Start Time</label>
-                <input type="time" class="form-control" id="startT">
+                <input type="time" class="form-control" id="startT" name="start_at">
             </div>
             <div class="col-md-6">
                 <label for="endT" class="form-label">End Time</label>
-                <input type="Time" class="form-control" id="endT">
+                <input type="Time" class="form-control" id="endT" name="end_at">
             </div>
             
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+    </div>
 
 </body>
 

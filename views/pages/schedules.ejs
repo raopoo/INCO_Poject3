@@ -6,10 +6,10 @@
     <%- include('../partials/nav.ejs') %>
         <h1>Schedule website</h1>
 <!-- table starts here -->
+<div class="border border-primary">
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">User ID</th>
             <th scope="col">Day</th>
             <th scope="col">Start At</th>
@@ -17,15 +17,25 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>15</td>
-            <td>1</td>
-            <td>9AM</td>
-            <td>6PM</td>
-        </tr>
+        <% schedules.forEach(schedule=> { %>
+            <tr>
+                <td>
+                    <%= schedule.user_id %>
+                </td>
+                <td>
+                    <%= schedule.day %>
+                </td>
+                <td>
+                    <%= schedule.start_at %>
+                </td>
+                <td>
+                    <%= schedule.end_at %>
+                </td>
+            </tr>
+            <% }) %>
     </tbody>
 </table>
+</div>
 
 <!-- table ends here -->
 </body>
