@@ -41,20 +41,26 @@ app.get('/newSch',(req,res) =>{
 
 //Display single user
 app.get('/users/:id',(req,res) => {
-    res.send(data.users[req.params.id]) 
+    //res.send(data.users[req.params.id]) 
+    res.render('pages/oneUser',{
+        user: data.users[req.params.id]
+    })
 })
 
 //Display Schedule for a single user
 app.get('/users/:id/schedules',(req,res) => {
-    let schedule = []
+    let oneSch = []
     for(let i = 0; i < data.schedules.length; i++){
         if(data.schedules[i].user_id == Number(req.params.id)){
-            schedule.push(data.schedules[i])
+            oneSch.push(data.schedules[i])
         }
     else{
        res.send('User not found')
    }
-    res.send(schedule)
+    //res.send(schedule)
+    res.render("pages/oneSch", {
+                oneSch
+         })
  } 
 });
 //Add a new user

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <%- include('../partials/head.ejs') %>
+<script src="../../validation.js" defer></script>
 
 <body>
     <%- include('../partials/nav.ejs') %>
@@ -8,30 +9,30 @@
         <h2>Add new Schedule</h2>
         <!-- user form -->
         <div id="formDiv" class="border border-primary">
-        <form class="row g-3" id="schForm" method="POST" action="/schedules">
-            <div class="col-md-6">
+        <form id="schForm" method="POST" action="/schedules">
+            <div class="mb-3">
                 <label for="userId" class="form-label">User Id</label>
-                <input type="number" class="form-control" id="userId" name="user_id">
+                <input type="number" class="form-control" id="userId" name="user_id" required>
             </div>
-            <div class="col-md-6">
+            <div class="mb-3">
                 <label for="day" class="form-label">Day</label>
-                <input type="number" class="form-control" id="day" name="day">
+                <input type="number" class="form-control" id="day" name="day" required>
             </div>
-            <div class="col-md-6">
+            <div class="mb-3">
                 <label for="startT" class="form-label">Start Time</label>
-                <input type="time" class="form-control" id="startT" name="start_at">
+                <input type="time" class="form-control" id="startT" name="start_at" required>
             </div>
-            <div class="col-md-6">
+            <div class="mb-3">
                 <label for="endT" class="form-label">End Time</label>
-                <input type="Time" class="form-control" id="endT" name="end_at">
+                <input type="Time" class="form-control" id="endT" name="end_at" required>
             </div>
             
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="schBtn">Submit</button>
             </div>
         </form>
     </div>
-
+<%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

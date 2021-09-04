@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+        <h1>Schedule website</h1>
+        <h2>User details of <%= user.firstname %>
+            <%=user.lastname %> </h2>
+        <div class="card userCard">
+            <div class="card-body">
+              <p>First Name: <%= user.firstname %></p>
+              <p>Last Name: <%= user.lastname %></p>
+              <p>Email: <%= user.email %></p>                   <p>Password: <%= user.password %></p>
+            </div>
+        </div>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

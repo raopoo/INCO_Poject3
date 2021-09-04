@@ -1,5 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 h1,h2{
-    color: blueviolet;
+    color: blue;
     text-align: center;
     /* margin-top: 1rem; */
     padding: 1rem 0;
@@ -8,6 +12,10 @@ img{
     width: 50%;
     margin-left: 25%;
     padding-top: 3rem;
+}
+.tableDiv{
+    width: 50%;
+    margin-left: 25%;
 }
 #formDiv{
     width: 50%;
@@ -20,4 +28,24 @@ form{
 }
 table{
     width: 50%;
+}
+.userCard{
+    width: fit-content;
+    margin-left: 20%;
+}
+/* #schInfo{
+    border: none;
+    background-color: blueviolet;
+} */
+.newBtn{
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+#userBtn,#schBtn{
+    margin-left: 40%;
+}
+footer{
+    margin: 2rem;
+    text-align: center;
 }

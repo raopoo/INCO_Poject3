@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+        <h1>Schedule website</h1>
+        <h2>Schedule List</h2>
+        <% oneSch.forEach((schedule)=>{ %>
+        <div class="card userCard">
+          <div class="card card-body">
+            <p>User ID: <%= schedule.user_id %></p>
+            <p>Day: <%= schedule.day %></p>
+            <p>Start Time: <%= schedule.start_at %></p>
+            <p>End Time: <%= schedule.end_at %></p>
+          </div>
+        </div>
+        <% }) %>
+        <%- include('../partials/footer.ejs') %>
+</body>
+</html>
