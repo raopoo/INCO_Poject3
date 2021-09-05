@@ -15,8 +15,18 @@
                 <input type="number" class="form-control" id="userId" name="user_id" required>
             </div>
             <div class="mb-3">
-                <label for="day" class="form-label">Day</label>
-                <input type="number" class="form-control" id="day" name="day" required>
+                <label for="dayOfWeek" class="form-label">Day</label>
+                <!-- <input type="number" class="form-control" id="day" name="day" required> -->
+                <select class="form-select" aria-label="Default select example" id="dayOfWeek" name="dayOfWeek">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Sunday</option>
+                    <option value="2">Monday</option>
+                    <option value="3">Tuesday</option>
+                    <option value="4">Wednesday</option>
+                    <option value="5">Thursday</option>
+                    <option value="6">Friday</option>
+                    <option value="7">Saturday</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="startT" class="form-label">Start Time</label>

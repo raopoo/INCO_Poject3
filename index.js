@@ -82,10 +82,10 @@ app.post('/users', (req,res) => {
 })
 //Add new Schdule
 app.post('/schedules',(req,res) => {
-    const {user_id,day,start_at,end_at} = req.body
+    const {user_id,dayOfWeek,start_at,end_at} = req.body
     const newSch = {
         user_id,
-        day,
+        day:dayOfWeek,
         start_at,
         end_at
     }
