@@ -11,13 +11,12 @@
         <div id="formDiv" class="border border-primary">
         <form id="schForm" method="POST" action="/schedules">
             <div class="mb-3">
-                <label for="userId" class="form-label">User Id</label>
-                <input type="number" class="form-control" id="userId" name="user_id" required>
+                <label for="id" class="form-label">User Id</label>
+                <input type="number" class="form-control" id="id" name="id" required>
             </div>
             <div class="mb-3">
-                <label for="dayOfWeek" class="form-label">Day</label>
-                <!-- <input type="number" class="form-control" id="day" name="day" required> -->
-                <select class="form-select" aria-label="Default select example" id="dayOfWeek" name="dayOfWeek">
+                <label for="day" class="form-label">Day</label>
+                <select class="form-select" aria-label="Default select example" id="day" name="day">
                     <option selected>Open this select menu</option>
                     <option value="1">Sunday</option>
                     <option value="2">Monday</option>
@@ -30,11 +29,11 @@
             </div>
             <div class="mb-3">
                 <label for="startT" class="form-label">Start Time</label>
-                <input type="time" class="form-control" id="startT" name="start_at" required>
+                <input type="time" class="form-control" id="startT" name="start_time" required>
             </div>
             <div class="mb-3">
                 <label for="endT" class="form-label">End Time</label>
-                <input type="Time" class="form-control" id="endT" name="end_at" required>
+                <input type="Time" class="form-control" id="endT" name="end_time" required>
             </div>
             
             <div class="col-12">
