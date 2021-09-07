@@ -51,17 +51,15 @@ app.get('/users/:id',(req,res) => {
 app.get('/users/:id/schedules',(req,res) => {
     let oneSch = []
     for(let i = 0; i < data.schedules.length; i++){
+        // console.log(i)
         if(data.schedules[i].user_id == Number(req.params.id)){
             oneSch.push(data.schedules[i])
+            // console.log(oneSch)
         }
-    else{
-       res.send('User not found')
-   }
-    //res.send(schedule)
-    res.render("pages/oneSch", {
+ } 
+  res.render("pages/oneSch", {
                 oneSch
          })
- } 
 });
 //Add a new user
 app.post('/users', (req,res) => {
