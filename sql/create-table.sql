@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users(
     password VARCHAR(255) NOT NULL);
 
 CREATE TABLE IF NOT EXISTS schedules (
-    id SERIAL PRIMARY KEY,
+    id INTEGER,
     day VARCHAR(255) NOT NULL, 
     start_time TIME(4) NOT NULL, 
     end_time TIME(4) NOT NULL

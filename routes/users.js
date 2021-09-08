@@ -16,25 +16,33 @@ router.get('/',(req,res) =>{
      })
     
 });
-
+//New user form
+router.get('/new',(req,res) =>{
+    res.render('pages/newUser')
+})
 
 //Display single user
-// router.get('/:id',(req,res) => {
-//     //res.send(data.users[req.params.id]) 
-//     res.render('pages/oneUser',{
-//         user: data.users[req.params.id]
-//     })
-// })
+router.get('/:id',(req,res) => {
+    //res.send(data.users[req.params.id]) 
+    db.one('SELECT * FROM users WHERE id = $1;', [req.params.id])
+     .then(user =>{
+      res.render('pages/oneUser',{
+        user
+     }) 
+  })
+  .catch(error =>{
+    console.log(error)
+  })
+})
 
-// router.get('/newUser',(req,res) =>{
-//     res.render('pages/newUser')
-// })
 
 //Add a new user
 router.post('/', (req,res) => {
-        // const salt = bcrypt.genSaltSync(10);
-        // const hash = bcrypt.hashSync(password, salt);
-    db.none('INSERT INTO users(firstname, lastname, email, password) VALUES($1, $2, $3, $4);', [req.body.firstname, req.body.lastname, req.body.email, req.body.password])
+    let {firstname, lastname, email, password} = req.body
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+    password = hash;
+    db.none('INSERT INTO users(firstname, lastname, email, password) VALUES($1, $2, $3, $4);', [firstname, lastname, email, password])
   .then(() => {
     res.redirect('/users')
   })

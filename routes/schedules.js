@@ -16,6 +16,11 @@ router.get('/',(req,res) =>{
      })
 })
 
+//New Schedule form
+router.get('/new',(req,res) =>{
+    res.render('pages/newSch')
+})
+
 
 //Display Schedule for a single user
 router.get('/users/:id/schedules',(req,res) => {
@@ -31,10 +36,7 @@ router.get('/users/:id/schedules',(req,res) => {
                 oneSch
          })
 });
-//Add new schedule form
-// router.get('/newSch',(req,res) =>{
-//     res.render('pages/newSch')
-// })
+
 //Add new Schdule
 router.post('/',(req,res) => {
     db.none('INSERT INTO schedules(id, day, start_time, end_time) VALUES($1, $2, $3, $4);', [req.body.id, req.body.day, req.body.start_time, req.body.end_time])

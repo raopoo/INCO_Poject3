@@ -1,5 +1,4 @@
 const express = require('express')
-const data = require('./data')
 const homeRouter = require('./routes/home')
 const usersRouter = require('./routes/users')
 const schedulesRouter = require('./routes/schedules')
@@ -24,78 +23,7 @@ app.use('/schedules',schedulesRouter)
  app.use(express.static('public'))
  
 
-// //Display all users
-// app.get('/users',(req,res) =>{
-    
-//     res.render('pages/users', {
-//         users: data.users,
-//     });
-// });
-// //Display all schedules
-// app.get('/schedules',(req,res) =>{
-//      res.render('pages/schedules',{
-//       schedules:data.schedules,
-//    })
-// })
-app.get('/newUser',(req,res) =>{
-    res.render('pages/newUser')
-})
-app.get('/newSch',(req,res) =>{
-    res.render('pages/newSch')
-})
 
-// //Display single user
-// app.get('/users/:id',(req,res) => {
-//     //res.send(data.users[req.params.id]) 
-//     res.render('pages/oneUser',{
-//         user: data.users[req.params.id]
-//     })
-// })
-
-// //Display Schedule for a single user
-// app.get('/users/:id/schedules',(req,res) => {
-//     let oneSch = []
-//     for(let i = 0; i < data.schedules.length; i++){
-//         // console.log(i)
-//         if(data.schedules[i].user_id == Number(req.params.id)){
-//             oneSch.push(data.schedules[i])
-//             // console.log(oneSch)
-//         }
-//  } 
-//   res.render("pages/oneSch", {
-//                 oneSch
-//          })
-// });
-// //Add a new user
-// app.post('/users', (req,res) => {
-//     //console.log("Hello")
-//     const {firstname, lastname, email, password} = req.body
-//     //console.log(req.body)
-//     const salt = bcrypt.genSaltSync(10);
-//     const hash = bcrypt.hashSync(password, salt);
-//     const newUser = {
-//         firstname,
-//         lastname,
-//         email,
-//         password:hash
-//     }
-//     data.users.push(newUser)
-//     //res.json(data.users)
-//     res.redirect('/users')
-// })
-// //Add new Schdule
-// app.post('/schedules',(req,res) => {
-//     const {user_id,dayOfWeek,start_at,end_at} = req.body
-//     const newSch = {
-//         user_id,
-//         day:dayOfWeek,
-//         start_at,
-//         end_at
-//     }
-//     data.schedules.push(newSch)
-//     //res.json(data.schedules)
-//     res.redirect('/schedules')
-// })
 
 app.listen(PORT,() => {
     console.log(`Here is your app : http://localhost:${PORT}`)
