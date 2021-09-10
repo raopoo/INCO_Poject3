@@ -1,5 +1,5 @@
 const express = require('express')
-const { schedules } = require('../data')
+//const { schedules } = require('../data')
 const router = express.Router()
 const db = require('../database')
 
@@ -39,7 +39,7 @@ router.get('/users/:id/schedules',(req,res) => {
 
 //Add new Schdule
 router.post('/',(req,res) => {
-    db.none('INSERT INTO schedules(id, day, start_time, end_time) VALUES($1, $2, $3, $4);', [req.body.id, req.body.day, req.body.start_time, req.body.end_time])
+    db.none('INSERT INTO schedules(username, day, start_time, end_time) VALUES($1, $2, $3, $4);', [req.body.username, req.body.day, req.body.start_time, req.body.end_time])
   .then(() => {
     res.redirect('/schedules')
   })

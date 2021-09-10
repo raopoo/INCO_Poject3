@@ -11,8 +11,8 @@
         <div id="formDiv" class="border border-primary">
         <form id="schForm" method="POST" action="/schedules">
             <div class="mb-3">
-                <label for="id" class="form-label">User Id</label>
-                <input type="number" class="form-control" id="id" name="id" required>
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <div class="mb-3">
                 <label for="day" class="form-label">Day</label>
@@ -41,6 +41,10 @@
             </div>
         </form>
     </div>
+    <div class="col-12" id="schPage">
+    <a href="/schedules"><button type="click" class="btn btn-primary">Back to schedules</button></a>
+    </div>
+
 <%- include('../partials/footer.ejs') %>
 </body>
 

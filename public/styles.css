@@ -33,10 +33,6 @@ table{
     width: fit-content;
     margin-left: 20%;
 }
-/* #schInfo{
-    border: none;
-    background-color: blueviolet;
-} */
 .newBtn{
     text-align: center;
     padding: 2rem;
@@ -44,6 +40,10 @@ table{
 }
 #userBtn,#schBtn{
     margin-left: 40%;
+}
+#schPage{
+    text-align: center;
+    padding: 2rem;
 }
 footer{
     margin: 2rem;
