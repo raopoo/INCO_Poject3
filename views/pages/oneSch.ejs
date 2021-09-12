@@ -8,12 +8,12 @@
         <% oneSch.forEach((schedule)=>{ %>
         <div class="card userCard">
           <div class="card card-body">
-            <p>User ID: <%= schedule.user_id %></p>
+            <p>User ID: <%= schedule.id %></p>
             <p>User Name: <%= schedule.username %>
             </p>
             <p>Day: <%= schedule.day %></p>
-            <p>Start Time: <%= schedule.start_at %></p>
-            <p>End Time: <%= schedule.end_at %></p>
+            <p>Start Time: <%= schedule.start_time %></p>
+            <p>End Time: <%= schedule.end_time %></p>
           </div>
         </div>
         <% }) %>

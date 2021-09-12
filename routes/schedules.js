@@ -7,7 +7,18 @@ const db = require('../database')
 router.get('/',(req,res) =>{
     db.any('SELECT * FROM schedules;')
      .then(schedules => {
-        // console.log(schedules)
+       schedules.forEach((schedule) => {
+        //console.log(schedules)
+        const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday'];
+        for(let i=1;i <= week.length+1; i++)
+        { 
+          if(i == schedule.day)
+           {
+               schedule.day = week[i-1];                         
+          }
+        }
+        return schedule;
+      })
          res.render('pages/schedules',{schedules})
      })
      .catch(error => {
