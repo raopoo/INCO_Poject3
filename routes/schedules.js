@@ -5,7 +5,7 @@ const db = require('../database')
 
 //Display all schedules
 router.get('/',(req,res) =>{
-    db.any('SELECT * FROM schedules;')
+    db.any("SELECT id, username, day, TO_CHAR(start_time, 'HH12:MM AM') start_time, TO_CHAR(end_time, 'HH12:MM AM') end_time FROM schedules;")
      .then(schedules => {
        schedules.forEach((schedule) => {
         //console.log(schedules)
