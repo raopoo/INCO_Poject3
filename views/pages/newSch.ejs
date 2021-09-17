@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<script src="../../validation.js" defer></script>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+        <h1>Schedule website</h1>
+        <h2>Add new Schedule</h2>
+        <!-- user form -->
+        <div id="formDiv" class="border border-primary">
+        <form id="schForm" method="POST" action="/schedules">
+            <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="day" class="form-label">Day</label>
+                <select class="form-select" aria-label="Default select example" id="day" name="day">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Sunday</option>
+                    <option value="2">Monday</option>
+                    <option value="3">Tuesday</option>
+                    <option value="4">Wednesday</option>
+                    <option value="5">Thursday</option>
+                    <option value="6">Friday</option>
+                    <option value="7">Saturday</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="startT" class="form-label">Start Time</label>
+                <input type="time" class="form-control" id="startT" name="start_time" required>
+            </div>
+            <div class="mb-3">
+                <label for="endT" class="form-label">End Time</label>
+                <input type="Time" class="form-control" id="endT" name="end_time" required>
+            </div>
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" id="schBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-12" id="schPage">
+    <a href="/schedules"><button type="click" class="btn btn-primary">Back to schedules</button></a>
+    </div>
+
+<%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

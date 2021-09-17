@@ -1,13 +1,30 @@
 const express = require('express')
-const app = express()
-const PORT = 3000
+const homeRouter = require('./routes/home')
+const usersRouter = require('./routes/users')
+const schedulesRouter = require('./routes/schedules')
 
-// Get request-route
-app.get('/',(req,res) => {
-    res.send('hello world')
-})
+const app = express()
+const PORT = process.env.PORT || 3000
+
+//Body Parser
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
+
+//Middleware
+app.use('/',homeRouter)
+app.use('/users',usersRouter)
+app.use('/schedules',schedulesRouter)
+
+
+//Set view engine as EJS(HTML files)
+ app.set('view engine', 'ejs')
+
+//Set our static folder(CSS)
+ app.use(express.static('public'))
+ 
+
 
 
 app.listen(PORT,() => {
-    console.log(`You are all doing great. The app : http://localhost:${PORT}`)
+    console.log(`Here is your app : http://localhost:${PORT}`)
 })

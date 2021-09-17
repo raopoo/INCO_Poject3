@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+        <h1>Schedule website</h1>
+        <h2>Schedule List</h2>
+<!-- table starts here -->
+<div class="border border-primary tableDiv">
+    <% schedules.forEach((schedule, i)=> { %>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading<%=i%>">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse<%=i%>" aria-expanded="fal\" aria-controls="collapse<%=i%>">
+                        <%= schedule.username %>
+                    </button>
+                </h2>
+                <div id="collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="heading<%=i%>"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="card card-body">
+                            <p>ID: <%= schedule.id %>
+                            </p>
+                            <p>User Name: <%= schedule.username %>
+                                </p>
+                                <p>Day: <%= schedule.day %>
+                                </p>
+                            <p>Start Time: <%= schedule.start_time %>
+                            </p>
+                            <p>End Time: <%= schedule.end_time %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+</div>
+<!-- table ends here -->
+<!-- Add new Schedule -->
+<div class="newBtn">
+    <a href="/schedules/new"><button class="btn btn-primary" type="button">Create New Schedule</button></a>
+</div>
+<%- include('../partials/footer.ejs') %>
+</body>
+
+</html>
