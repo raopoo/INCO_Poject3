@@ -49,3 +49,7 @@ footer{
     margin: 2rem;
     text-align: center;
 }
+#errMsg{
+    text-align: center;
+    font-size: large;
+}

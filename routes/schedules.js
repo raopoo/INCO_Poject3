@@ -29,8 +29,10 @@ router.get('/',(req,res) =>{
 
 //New Schedule form
 router.get('/new',(req,res) =>{
-    res.render('pages/newSch')
-})
+    res.render('pages/newSch',{
+      message: req.query.message
+    })
+});
 
 
 //Display Schedule for a single user
@@ -50,15 +52,23 @@ router.get('/users/:id/schedules',(req,res) => {
 
 //Add new Schdule
 router.post('/',(req,res) => {
+    if((req.body.username === '') || (req.body.day === '') || (req.body.start_time === '') || (req.body.end_time === '')){
+      res.redirect('/schedules/new?message=Please%20enter%20all%20fields.')
+    } else if(req.body.end_time <= req.body.start_time){
+      res.redirect(
+          '/schedules/new?message=End%20time%20should%20be%20greater%20than%20start%20time.'
+        );
+  }
+    else {
     db.none('INSERT INTO schedules(username, day, start_time, end_time) VALUES($1, $2, $3, $4);', [req.body.username, req.body.day, req.body.start_time, req.body.end_time])
   .then(() => {
-    res.redirect('/schedules')
-  })
+      res.redirect('/schedules')
+    })
   .catch(error => {
     console.log(error)
     res.send(error)
   })
-    
+ }   
 })
 
 module.exports = router

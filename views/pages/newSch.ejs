@@ -7,12 +7,17 @@
     <%- include('../partials/nav.ejs') %>
         <h1>Schedule website</h1>
         <h2>Add new Schedule</h2>
+        <% if (typeof message !== 'undefined') { %>
+            <p id="errMsg" style="color: red">
+                <%= message %>
+            </p>
+            <% } %>
         <!-- user form -->
         <div id="formDiv" class="border border-primary">
         <form id="schForm" method="POST" action="/schedules">
             <div class="mb-3">
                 <label for="username" class="form-label">User Name</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                <input type="text" class="form-control" id="username" name="username">
             </div>
             <div class="mb-3">
                 <label for="day" class="form-label">Day</label>
@@ -29,11 +34,11 @@
             </div>
             <div class="mb-3">
                 <label for="startT" class="form-label">Start Time</label>
-                <input type="time" class="form-control" id="startT" name="start_time" required>
+                <input type="time" class="form-control" id="startT" name="start_time">
             </div>
             <div class="mb-3">
                 <label for="endT" class="form-label">End Time</label>
-                <input type="Time" class="form-control" id="endT" name="end_time" required>
+                <input type="Time" class="form-control" id="endT" name="end_time">
             </div>
             
             <div class="col-12">
