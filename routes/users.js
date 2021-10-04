@@ -39,7 +39,10 @@ router.get('/:id',(req,res) => {
 //Add a new user
 router.post('/', (req,res) => {
     let {firstname, lastname, email, password} = req.body
-    const salt = bcrypt.genSaltSync(10);
+    if((firstname === '') || (lastname === '') || (email === '') || (password === '')){
+      res.redirect('/schedules/new?message=Please%20enter%20all%20fields.')
+    }else{
+      const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
     password = hash;
     db.none('INSERT INTO users(firstname, lastname, email, password) VALUES($1, $2, $3, $4);', [firstname, lastname, email, password])
@@ -50,6 +53,8 @@ router.post('/', (req,res) => {
     console.log(error)
     res.send(error)
   })
+    
+ }
     
 })
 
